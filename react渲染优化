@@ -1,0 +1,67 @@
+react优化渲染
+
+问：
+当子组件  没有使用react.memo ，函数也没有被其他hook依赖，我依然把函数通过usecallback包裹的话，这样不就是保证props没有变化，不就保证了子组件不会重新渲染吗，
+
+答：
+### React 组件重新渲染的机制
+React 组件重新渲染的触发条件是：
+
+1. 父组件重新渲染时，所有子组件默认都会重新渲染
+2. 这与 props 是否变化无关
+
+// 即使 props 完全相同，子组件仍会重新渲染
+```javascript
+const Parent = () => {
+  const [count, setCount] = useState(0);
+  
+  // 即使用了 useCallback
+  const handleClick = useCallback(() => {
+    console.log('clicked');
+  }, []);
+  
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>Count: {count}</button>
+      <Child onClick={handleClick} /> {/* 每次 Parent 渲染，Child 都会重新渲染 */}
+    </div>
+  );
+};
+
+const Child = ({ onClick }) => {
+  console.log('Child 重新渲染了'); // 这行会在每次 Parent 渲染时执行
+  return <button onClick={onClick}>子组件按钮</button>;
+};
+```
+
+### 阻止重新渲染需要 React.memo
+只有使用 React.memo 才能让 React 进行 props 比较：
+
+// ✅ 正确：使用 React.memo + useCallback
+```javascript
+const Parent = () => {
+  const [count, setCount] = useState(0);
+  
+  const handleClick = useCallback(() => {
+    console.log('clicked');
+  }, []);
+  
+  return (
+    <div>
+      <button onClick={() => setCount(count + 1)}>Count: {count}</button>
+      <MemoizedChild onClick={handleClick} /> {/* 不会重新渲染 */}
+    </div>
+  );
+};
+
+const MemoizedChild = React.memo(({ onClick }) => {
+  console.log('MemoizedChild 重新渲染了'); // 只在首次渲染时执行
+  return <button onClick={onClick}>子组件按钮</button>;
+});
+```
+## 为什么会有这个误解？
+很多人认为 "props 不变 = 组件不重新渲染"，但实际上：
+
+1. React 默认行为 ：父组件渲染 → 所有子组件渲染
+2. React.memo 的作用 ：在渲染前进行 props 浅比较，如果相同则跳过渲染
+3. useCallback 的作用 ：保持函数引用稳定，配合 React.memo 使用
