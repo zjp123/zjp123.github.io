@@ -17,3 +17,11 @@
 - 普通页面错误 → 渲染 error.tsx
 - 根布局错误 → 渲染 global-error.tsx
 - error.tsx 本身出错 → 渲染 global-error.tsx
+
+- Next.js App Router文件约定：
+
+- layout.tsx - 自动包装所有子页面和布局
+- template.tsx - 自动包装页面内容，每次导航都会重新挂载
+- page.tsx - 页面组件
+- error.tsx - 错误边界
+- loading.tsx - 加载状态
