@@ -4,79 +4,97 @@
   <meta charset="utf-8">
   <title>{{ page.title }}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- 极客风格样式 -->
+  <!-- 文艺温暖风格样式 -->
+  <link href="https://fonts.googleapis.com/css?family=Zilla+Slab:400,700|Pacifico|Fira+Mono&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0; padding: 0;
-      background: #181c20;
-      color: #c3e88d;
-      font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #fff6e0 0%, #ffe4e1 100%);
+      color: #5e4634;
+      font-family: 'Zilla Slab', 'Georgia', serif;
       min-height: 100vh;
+      transition: background 0.7s;
     }
     header, footer {
-      background: #282c34;
-      padding: 18px 40px;
+      background: #ffd6a0;
+      padding: 2rem;
       text-align: center;
       letter-spacing: 2px;
-      font-size: 1.2em;
-      box-shadow: 0 2px 6px #0006;
+      border-radius: 0 0 40px 40px;
+      box-shadow: 0 4px 24px #fbbd8a44;
     }
     header {
-      border-bottom: 2px solid #61afef;
-    }
-    footer {
-      border-top: 2px solid #e06c75;
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5rem;
+      color: #e87461;
+      margin-bottom: 30px;
     }
     main {
-      max-width: 900px;
+      max-width: 850px;
       margin: 40px auto;
-      background: #22262b;
-      border-radius: 10px;
-      padding: 40px 30px;
-      box-shadow: 0 4px 24px #0005;
+      background: #fffafaee;
+      border-radius: 18px;
+      padding: 42px 32px;
+      box-shadow: 0 8px 32px #fbbd8a55;
       min-height: 400px;
     }
     h1, h2, h3 {
-      font-family: 'Fira Mono', 'Consolas', monospace;
-      color: #61afef;
+      font-family: 'Pacifico', cursive;
+      color: #e87461;
+      margin-top: 0.3em;
+      margin-bottom: 0.5em;
     }
     a {
-      color: #e06c75;
-      text-decoration: underline;
+      color: #f57c00;
+      text-decoration: none;
+      border-bottom: 2px dotted #fdb672;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: #e87461;
+      border-bottom: 2px solid #e87461;
     }
     code, pre {
-      background: #23272e;
-      color: #98c379;
-      border-radius: 4px;
+      background: #fff5e5cc;
+      color: #ad5a00;
+      border-radius: 6px;
       padding: 2px 6px;
       font-family: 'Fira Mono', monospace;
-      font-size: 0.98em;
+      font-size: 1em;
+    }
+    footer {
+      font-size: 1rem;
+      color: #ad5a00;
+      border-radius: 40px 40px 0 0;
+      margin-top: 40px;
+    }
+    /* 手绘风分割线 */
+    hr {
+      border: none;
+      border-top: 2px dashed #ffd6a0;
+      margin: 2em 0;
     }
     /* 个性化滚动条 */
     ::-webkit-scrollbar {
-      width: 8px;
-      background: #22262b;
+      width: 9px;
+      background: #ffe4e1;
     }
     ::-webkit-scrollbar-thumb {
-      background: #61afef;
+      background: #ffd6a0;
       border-radius: 4px;
     }
   </style>
-  <!-- 代码字体 CDN，可选 -->
-  <link href="https://fonts.googleapis.com/css?family=Fira+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <span style="color:#e06c75;">&#x3C;/</span>
-    <strong style="color:#c3e88d;">zjp123</strong>
-    <span style="color:#e06c75;">&#x3E;_Portfolio</span>
+    ✦ zjp123 ✦ <span style="font-size:1rem; color:#ad5a00; letter-spacing:0;">文艺程序人生</span>
   </header>
-  <h2 style="text-align:center; margin-top:16px; color:#abb2bf;">{{site.time}}</h2>
   <main>
     {{ content }}
   </main>
   <footer>
-    &copy; {{ site.time | date: "%Y" }} zjp123 | Powered by <span style="color:#61afef;">Jekyll</span> & <span style="color:#e06c75;">GitHub Pages</span>
+    &copy; {{ site.time | date: "%Y" }} zjp123 | 用温暖的代码点亮世界
   </footer>
 </body>
 </html>
