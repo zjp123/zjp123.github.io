@@ -3,8 +3,17 @@ layout: default
 title: 我的博客
 ---
 
+欢迎来到我的博客！
+
+
+<!--
+---
+layout: default
+title: 我的博客
+---
+
 <div style="max-width: 800px; margin: 0 auto; padding: 20px;">
-  <!-- 添加以下美化代码 -->
+  
   <style>
     :root {
       --primary: #4361ee;
@@ -71,7 +80,7 @@ title: 我的博客
   </header>
   
   <div class="container">
-    <!-- 文章列表会自动生成 -->
+   
     {{ content }}
   </div>
   
@@ -86,3 +95,4 @@ title: 我的博客
     </div>
   </footer>
 </div>
+-->
