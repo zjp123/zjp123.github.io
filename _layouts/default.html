@@ -3,15 +3,80 @@
 <head>
   <meta charset="utf-8">
   <title>{{ page.title }}</title>
-  <!-- 你的样式和 meta 标签 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 极客风格样式 -->
+  <style>
+    body {
+      margin: 0; padding: 0;
+      background: #181c20;
+      color: #c3e88d;
+      font-family: 'Fira Mono', 'Consolas', 'Menlo', monospace;
+      min-height: 100vh;
+    }
+    header, footer {
+      background: #282c34;
+      padding: 18px 40px;
+      text-align: center;
+      letter-spacing: 2px;
+      font-size: 1.2em;
+      box-shadow: 0 2px 6px #0006;
+    }
+    header {
+      border-bottom: 2px solid #61afef;
+    }
+    footer {
+      border-top: 2px solid #e06c75;
+    }
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #22262b;
+      border-radius: 10px;
+      padding: 40px 30px;
+      box-shadow: 0 4px 24px #0005;
+      min-height: 400px;
+    }
+    h1, h2, h3 {
+      font-family: 'Fira Mono', 'Consolas', monospace;
+      color: #61afef;
+    }
+    a {
+      color: #e06c75;
+      text-decoration: underline;
+    }
+    code, pre {
+      background: #23272e;
+      color: #98c379;
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-family: 'Fira Mono', monospace;
+      font-size: 0.98em;
+    }
+    /* 个性化滚动条 */
+    ::-webkit-scrollbar {
+      width: 8px;
+      background: #22262b;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #61afef;
+      border-radius: 4px;
+    }
+  </style>
+  <!-- 代码字体 CDN，可选 -->
+  <link href="https://fonts.googleapis.com/css?family=Fira+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-  <h2>{{site.time}}</h2>
-  
-  <header>...</header>
+  <header>
+    <span style="color:#e06c75;">&#x3C;/</span>
+    <strong style="color:#c3e88d;">zjp123</strong>
+    <span style="color:#e06c75;">&#x3E;_Portfolio</span>
+  </header>
+  <h2 style="text-align:center; margin-top:16px; color:#abb2bf;">{{site.time}}</h2>
   <main>
     {{ content }}
   </main>
-  <footer>...</footer>
+  <footer>
+    &copy; {{ site.time | date: "%Y" }} zjp123 | Powered by <span style="color:#61afef;">Jekyll</span> & <span style="color:#e06c75;">GitHub Pages</span>
+  </footer>
 </body>
 </html>
