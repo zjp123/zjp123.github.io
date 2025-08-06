@@ -16,7 +16,12 @@
             "request": "launch",
             "name": "Launch Chrome against localhost",
             "url": "http://dev.jd.com:5173/",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}",
+            "userDataDir": false,
+            "runtimeArgs": [
+                "--disable-web-security",
+                "--disable-features=VizDisplayCompositor"
+            ]
         }
     ]
 }
