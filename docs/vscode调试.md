@@ -52,3 +52,20 @@
         }
     ]
 }
+
+
+
+// attach 模式
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "chrome",
+            "request": "attach",
+            "name": "Attach to Chrome",
+            "port": 9222,
+            "webRoot": "${workspaceFolder}/src"
+        }
+    ]
+}
+Start-Process "chrome.exe" -ArgumentList "--remote-debugging-port=9222","--user-data-dir=$env:LOCALAPPDATA\Google\Chrome\User Data","http://dev.jd.com:5173/"
