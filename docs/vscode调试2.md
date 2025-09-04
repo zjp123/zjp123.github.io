@@ -1,4 +1,8 @@
 
+如何查看chrome用户 数据路径？
+在浏览器地址栏中输入：chrome://version/  就能查看很多信息
+
+
 <img width="465" height="880" alt="image" src="https://github.com/user-attachments/assets/4d5f8c62-51e1-4de2-a77a-f5c2889fb98a" />
 
 
