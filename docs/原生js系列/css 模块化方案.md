@@ -24,5 +24,9 @@
 - 支持 composes 组合：在一个类中“组合”另一个模块的类，从而实现样式复用且保持本地作用域。
 - 额外语法   :global 等
 
+## CSS-in-JS 的原理
+两大类实现：
+- 运行时注入（styled-components、Emotion、JSS、Stitches 等）：在浏览器或 Node（SSR）运行时把 JS 中定义的样式序列化为 CSS，生成唯一类名（哈希），并插入到 <style> 标签（CSSOM）中。支持根据 props/状态动态生成不同的样式。
+- 编译期抽取/零运行时（Linaria、Vanilla Extract 等）：构建时分析样式，把可静态确定的部分抽取为独立 CSS 文件或类名，运行时没有或很少注入；动态部分通常通过 CSS 变量或条件类名来实现。
   
   
